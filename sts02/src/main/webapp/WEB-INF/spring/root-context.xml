@@ -9,8 +9,10 @@
 		<property name="username" value="scott"/>
 		<property name="password" value="tiger"/>
 	</bean>
-	
-	<bean id="dao" class="com.hb.ex02.model.GuestDao">
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="dao" class="com.hb.ex02.model.GuestDaoImf">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 </beans>

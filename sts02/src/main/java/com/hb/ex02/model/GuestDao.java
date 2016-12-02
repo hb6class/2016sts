@@ -22,7 +22,7 @@ public class GuestDao {
 	}
 
 	public List<GuestVo> listAll() throws ClassNotFoundException, SQLException {
-		String sql="select * from guest";
+		String sql="SELECT * FROM GUEST";
 		List<GuestVo> list=null;
 		try{
 			conn=dataSource.getConnection();
@@ -44,5 +44,25 @@ public class GuestDao {
 		}
 		
 		return list;
+	}
+
+	public void insertOne(GuestVo bean) throws SQLException {
+		String sql= "INSERT INTO GUEST VALUES (?,?,SYSDATE,?)";
+		try{
+			conn=dataSource.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, bean.getSabun());
+			pstmt.setString(2, bean.getName());
+			pstmt.setInt(3, bean.getPay());
+			pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+	}
+
+	public GuestVo selectOne(int sabun) {
+		
+		return null;
 	}
 }
