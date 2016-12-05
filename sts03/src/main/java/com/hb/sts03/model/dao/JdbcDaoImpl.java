@@ -36,14 +36,16 @@ public class JdbcDaoImpl implements GuestDao {
 
 	@Override
 	public void insertOne(GuestVo bean) {
-		// TODO Auto-generated method stub
-
+		String sql="insert into guest values (?,?,sysdate,?)";
+		Object[] obj={bean.getSabun(),bean.getName(),bean.getPay()};
+		jdbcOperations.update(sql, obj);
 	}
 
 	@Override
 	public GuestVo selectOne(int sabun) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql="select * from guest where sabun=?";
+		return (GuestVo)jdbcOperations.queryForObject(
+				sql, new Object[]{sabun}, rowMapper);
 	}
 
 	@Override

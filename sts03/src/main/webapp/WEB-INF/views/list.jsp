@@ -19,12 +19,18 @@
 		<c:forEach items="${alist }" var="bean">
 		<tr>
 			<td>${bean.sabun }</td>
-			<td>${bean.name }</td>
+			<td>
+				<a href="guest/${bean.sabun }">
+				${bean.name }
+				</a>
+			</td>
 			<td>${bean.nalja }</td>
 			<td>${bean.pay }</td>
 		</tr>		
 		</c:forEach>
 	</table>
+	<p><a href="guest/form">입력</a></p>
+	
 </body>
 </html>
 
