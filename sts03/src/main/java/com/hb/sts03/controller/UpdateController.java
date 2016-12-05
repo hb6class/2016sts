@@ -31,8 +31,8 @@ public class UpdateController {
 			@PathVariable("idx")int sabun
 			,GuestVo bean
 			) {
-		System.out.println(sabun+">>>"+bean);
-		return null;
+		guestDao.updateOne(bean);
+		return "redirect:/guest";
 	}
 }
 

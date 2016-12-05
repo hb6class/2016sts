@@ -50,8 +50,9 @@ public class JdbcDaoImpl implements GuestDao {
 
 	@Override
 	public void updateOne(GuestVo bean) {
-		// TODO Auto-generated method stub
-
+		String sql="update guest set name=?, pay=? where sabun=?";
+		Object[] obj={bean.getName(),bean.getPay(),bean.getSabun()};
+		jdbcOperations.update(sql, obj);
 	}
 
 	@Override
