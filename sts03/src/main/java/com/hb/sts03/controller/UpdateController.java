@@ -34,6 +34,13 @@ public class UpdateController {
 		guestDao.updateOne(bean);
 		return "redirect:/guest";
 	}
+
+	@RequestMapping(value="/guest/{idx}"
+			,method=RequestMethod.DELETE)
+	public String guestDelete(@PathVariable("idx")int sabun) {
+		guestDao.deleteOne(sabun);
+		return "redirect:/guest";
+	}
 }
 
 

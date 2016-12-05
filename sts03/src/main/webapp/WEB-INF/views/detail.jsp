@@ -27,6 +27,10 @@
 		</tr>
 	</table>
 	<p><a href="${bean.sabun }/form">수정</a></p>
+	<form method="post">
+		<input type="hidden" name="_method" value="delete" /> 
+		<button>삭제</button>
+	</form>
 </body>
 </html>
 

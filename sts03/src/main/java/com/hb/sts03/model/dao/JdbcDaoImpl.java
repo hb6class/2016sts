@@ -57,8 +57,8 @@ public class JdbcDaoImpl implements GuestDao {
 
 	@Override
 	public void deleteOne(int sabun) {
-		// TODO Auto-generated method stub
-
+		String sql="delete from guest where sabun=?";
+		jdbcOperations.update(sql, new Object[]{sabun});
 	}
 
 }
