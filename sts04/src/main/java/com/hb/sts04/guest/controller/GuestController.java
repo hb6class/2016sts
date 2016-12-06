@@ -19,7 +19,7 @@ public class GuestController {
 	@Autowired
 	private GuestDao guestDao;
 	
-	@RequestMapping("/guest")
+	@RequestMapping(value="/guest",method=RequestMethod.GET)
 	public String guestList(Model model) {
 		model.addAttribute("alist", guestDao.selectAll());
 		return "guest/list";
@@ -41,6 +41,17 @@ public class GuestController {
 		guestDao.deleteOne(sabun);
 		return "redirect:/guest";
 	}
+	@RequestMapping("/guest/form")
+	public void form() {
+//		/guest/form;
+	}
+	@RequestMapping(value="/guest",method=RequestMethod.POST)
+	public String GuestInsert(GuestVo bean) {
+		System.out.println("add:"+bean);
+		guestDao.insertOne(bean);
+		return "redirect:/guest";
+	}
+	
 }
 
 

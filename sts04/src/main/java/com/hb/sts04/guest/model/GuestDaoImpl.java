@@ -23,7 +23,7 @@ public class GuestDaoImpl implements GuestDao {
 
 	@Override
 	public void insertOne(GuestVo bean) {
-		// TODO Auto-generated method stub
+		sqlSession.insert("guest.insertOne",bean);
 
 	}
 

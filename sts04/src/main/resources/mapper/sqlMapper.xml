@@ -8,6 +8,9 @@
   <select id="selectAll" resultType="com.hb.sts04.guest.model.GuestVo">
     SELECT * FROM GUEST
   </select>
+  <insert id="insertOne" parameterType="com.hb.sts04.guest.model.GuestVo">
+  	INSERT INTO GUEST VALUES ( #{sabun}, #{name},SYSDATE, #{pay} )
+  </insert>
   <select id="selectOne" parameterType="int" resultType="com.hb.sts04.guest.model.GuestVo">
   	SELECT * FROM GUEST WHERE SABUN=#{value}
   </select>
