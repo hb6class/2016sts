@@ -8,4 +8,6 @@
   <select id="selectAll" resultType="com.hb.sts04.guest.model.GuestVo">
     select * from guest
   </select>
+  <select id="selectOne" parameterType="int" resultType="com.hb.sts04.guest.model.GuestVo">
+  </select>
 </mapper>

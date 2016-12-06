@@ -17,6 +17,18 @@
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/sts04/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$(".detail").show();
+    		$(".edit").hide();
+    		$(".btnEdit").click(function() {
+    			$(".detail").hide();
+    			$(".edit").show();
+    			$(".page-header").html("<h1>수정 페이지</h1>");
+			});
+		});
+    
+    </script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -42,7 +54,7 @@
     </nav>
 
 		<div class="jumbotron">
-		  <h1>LIST PAGE</h1>
+		  <h1>Detail PAGE</h1>
 		  <p>guest table list</p>
 		  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 		</div>
@@ -51,53 +63,80 @@
 			<div class="col-xs-12">
 				<ol class="breadcrumb">
 				  <li><a href="/sts04/">Home</a></li>
-				  <li class="active">List</li>
+				  <li><a href="/sts04/guest">List</a></li>
+				  <li class="active">Detail</li>
 				</ol>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
-			<table class="table table-hover">
-				<tr>
-					<th>사번</th>
-					<th>이름</th>
-					<th>날짜</th>
-					<th>금액</th>
-				</tr>
-				<c:forEach items="${alist }" var="bean">
-				<tr>
-					<td>
-						<a href="/sts04/guest/${bean.sabun }">
-						${bean.sabun }
-						</a>
-					</td>
-					<td>
-						<a href="/sts04/guest/${bean.sabun }">
-						${bean.name }
-						</a>
-					</td>
-					<td>
-						<a href="/sts04/guest/${bean.sabun }">
-						${bean.nalja }
-						</a>
-					</td>
-					<td>
-						<a href="/sts04/guest/${bean.sabun }">
-						${bean.pay }
-						</a>
-					</td>
-				</tr>
-				</c:forEach>
-				
+				<div class="page-header">
+				  <h1>상세페이지 <small>${bean.sabun }님의 정보</small></h1>
+				</div>
+			</div>
+		</div>
+		<div class="row detail">
+			<div class="col-xs-12">
+			<table class="table">
+			<tr>
+				<td>사번</td>
+				<td>${bean.sabun }</td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td>${bean.name }</td>
+			</tr>
+			<tr>
+				<td>날짜</td>
+				<td>${bean.nalja }</td>
+			</tr>
+			<tr>
+				<td>금액</td>
+				<td>${bean.pay }</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="button" class="btn btn-primary btnEdit">수정</button>
+					<a class="btn btn-danger" href="#" role="button">삭제</a>
+				</td>
+			</tr>
 			</table>
-			
+			</div>
+		</div>
+		<div class="row edit">
+			<div class="col-xs-12">
+				<form method="post" class="form-horizontal">
+				<input type="hidden" name="_method" value="put"/>
+  <div class="form-group">
+    <label for="sabun" class="col-sm-2  control-label">sabun</label>
+    <div  class="col-sm-10">
+    <input type="text" class="form-control" name="sabun" id="sabun" value="${bean.sabun }">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name" class="col-sm-2  control-label">name</label>
+    <div  class="col-sm-10">
+    <input type="text" class="form-control" name="name" id="name" value="${bean.name }">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="pay" class="col-sm-2  control-label">pay</label>
+    <div  class="col-sm-10">
+    <input type="text" class="form-control" name="pay" id="pay" value="${bean.pay }">
+    </div>
+  </div>
+  <div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+  <button type="submit" class="btn btn-success">수정</button>
+  <button type="reset" class="btn btn-default">취소</button>
+  </div>
+  </div>
+</form>
 			</div>
 		</div>
 	</div>
 </body>
 </html>
-
-
 
 
 

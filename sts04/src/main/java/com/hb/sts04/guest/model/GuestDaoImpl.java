@@ -18,8 +18,7 @@ public class GuestDaoImpl implements GuestDao {
 
 	@Override
 	public GuestVo selectOne(int sabun) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("guest.selectOne", sabun);
 	}
 
 	@Override
