@@ -6,9 +6,21 @@
 
 <mapper namespace="guest">
   <select id="selectAll" resultType="com.hb.sts04.guest.model.GuestVo">
-    select * from guest
+    SELECT * FROM GUEST
   </select>
   <select id="selectOne" parameterType="int" resultType="com.hb.sts04.guest.model.GuestVo">
-  	select * from guest where sabun=#{value}
+  	SELECT * FROM GUEST WHERE SABUN=#{value}
   </select>
+  <update id="updateOne" parameterType="com.hb.sts04.guest.model.GuestVo">
+  	UPDATE GUEST SET NAME=#{name}, PAY=#{pay} WHERE SABUN=#{sabun}
+  </update>
+  <delete id="deleteOne" parameterType="int">
+  	DELETE FROM GUEST WHERE SABUN=#{value}
+  </delete>
 </mapper>
+
+
+
+
+
+

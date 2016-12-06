@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hb.sts04.guest.model.GuestDao;
+import com.hb.sts04.guest.model.GuestVo;
 
 @Controller
 public class GuestController {
@@ -30,9 +31,15 @@ public class GuestController {
 	}
 	
 	@RequestMapping(value="/guest/{sabun}", method=RequestMethod.PUT)
-	public String guestUpdate(){
-		System.out.println("PUT");
-		return null;
+	public String guestUpdate(@PathVariable("sabun") int sabun,GuestVo bean){
+		guestDao.updateOne(bean);
+		return "redirect:/guest/"+sabun;
+	}
+	@RequestMapping(value="/guest/{sabun}",method=RequestMethod.DELETE)
+	public String guestDelete(@PathVariable("sabun") int sabun){
+//		System.out.println("delete:"+sabun);
+		guestDao.deleteOne(sabun);
+		return "redirect:/guest";
 	}
 }
 

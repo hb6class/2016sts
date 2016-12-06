@@ -29,14 +29,12 @@ public class GuestDaoImpl implements GuestDao {
 
 	@Override
 	public void updateOne(GuestVo bean) {
-		// TODO Auto-generated method stub
-
+		sqlSession.update("guest.updateOne", bean);
 	}
 
 	@Override
 	public void deleteOne(int sabun) {
-		// TODO Auto-generated method stub
-
+		sqlSession.delete("guest.deleteOne", sabun);
 	}
 
 }
