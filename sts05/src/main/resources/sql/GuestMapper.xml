@@ -13,13 +13,12 @@
   	<update id="updateOne" parameterType="com.hb.sts05.model.GuestVo">
   	UPDATE GUEST SET NAME=#{name},PAY=#{pay} WHERE SABUN=#{sabun}
   	</update>
-  	<!-- 
   	<insert id="insertOne" parameterType="com.hb.sts05.model.GuestVo">
-  	INSERT INTO GUEST VALUES (#{},#{},SYSDATE,#{})
+  	INSERT INTO GUEST VALUES (#{sabun},#{name},SYSDATE,#{pay})
   	</insert>
   	<delete id="deleteOne" parameterType="int">
-  	DELETE FROM GUEST WHERE SABUN=#{}
-  	</delete> -->
+  	DELETE FROM GUEST WHERE SABUN=#{value}
+  	</delete>
   </mapper>
   
   

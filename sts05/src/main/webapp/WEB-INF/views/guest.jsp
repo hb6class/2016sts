@@ -42,6 +42,7 @@
 	</a>
 	</c:forEach>
 	</div>
+	<p><a href="/sts05/guest/add">입력</a></p>
 </body>
 </html>
 

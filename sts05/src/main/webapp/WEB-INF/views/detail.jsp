@@ -12,12 +12,22 @@
     <script type="text/javascript">
     $(document).ready(function() {
 		$("button").click(function() {
-			if($(this).attr("type")=="button"){
-				$("h1").text("수정페이지");
-				$(".nalja").remove();
-				$("input").removeAttr("readonly");
-				$(this).attr("type","submit");
-				return false;
+			if($(this).text()=="수정"){
+				if($(this).attr("type")=="button"){
+					$("h1").text("수정페이지");
+					$(".nalja").remove();
+					$("input").removeAttr("readonly");
+					$(this).attr("type","submit");
+					return false;
+				}
+			}else{
+				$.post(
+						"/sts05/guest/delete"
+						,{'idx':'${bean.sabun }'}
+						,function(){
+							window.location.replace("/sts05/guest/");
+						}
+				);
 			}
 		});
 	});
@@ -45,6 +55,7 @@
 	</p>
 	<p>
 		<button type="button">수정</button>
+		<button type="button">삭제</button>
 	</p>
 	</form>
 </body>
