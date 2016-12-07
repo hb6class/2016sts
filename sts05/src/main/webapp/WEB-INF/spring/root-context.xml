@@ -5,7 +5,7 @@
 	
 	<!-- app.properties파일 읽어오기 -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="/WEB-INF/spring/app.properties"/>
+		<property name="location" value="classpath:/app.properties"/>
 	</bean>
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

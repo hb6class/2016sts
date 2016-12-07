@@ -7,15 +7,16 @@
   	<select id="selectAll" resultType="com.hb.sts05.model.GuestVo">
   	SELECT * FROM GUEST
   	</select>
-  	<!-- <select id="selectOne" parameterType="int" resultType="com.hb.sts05.model.GuestVo">
-  	SELECT * FROM GUEST WHERE SABUN=#{}
+  	<select id="selectOne" parameterType="int" resultType="com.hb.sts05.model.GuestVo">
+  	SELECT * FROM GUEST WHERE SABUN=#{value}
   	</select>
+  	<update id="updateOne" parameterType="com.hb.sts05.model.GuestVo">
+  	UPDATE GUEST SET NAME=#{name},PAY=#{pay} WHERE SABUN=#{sabun}
+  	</update>
+  	<!-- 
   	<insert id="insertOne" parameterType="com.hb.sts05.model.GuestVo">
   	INSERT INTO GUEST VALUES (#{},#{},SYSDATE,#{})
   	</insert>
-  	<update id="updateOne" parameterType="com.hb.sts05.model.GuestVo">
-  	UPDATE GUEST SET NAME=#{},PAY=#{} WHERE SABUN=#{}
-  	</update>
   	<delete id="deleteOne" parameterType="int">
   	DELETE FROM GUEST WHERE SABUN=#{}
   	</delete> -->
