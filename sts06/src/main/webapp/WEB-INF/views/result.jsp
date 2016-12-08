@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h1>파일전송 결과</h1>
-	<p>upload 결과 : <a href="/sts06/resources/${filename}">${msg }</a></p>
+	<p>upload 결과 : <a href="/sts06/download?fnm=${filename }">${msg }</a></p>
 </body>
 </html>
 
