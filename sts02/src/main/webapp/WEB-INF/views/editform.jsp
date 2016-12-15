@@ -9,7 +9,7 @@
 <body>
 	<h1>수정페이지</h1>
 	<div>${err }</div>
-	<form action="./update">
+	<form action="./update" method="post">
 	<table>
 		<tr>
 			<td>사번</td>

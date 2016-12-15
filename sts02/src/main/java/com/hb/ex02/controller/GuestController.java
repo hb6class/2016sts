@@ -1,11 +1,15 @@
 package com.hb.ex02.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hb.ex02.model.GuestDao;
@@ -19,7 +23,7 @@ public class GuestController {
 	private GuestDao guestDao;
 
 	@RequestMapping("/")
-	public String selectAll(Model model) {
+	public String selectAll(Model model, HttpSession session) {
 		try{
 		model.addAttribute("alist", guestDao.listAll());
 		}catch(Exception e){}
@@ -57,8 +61,9 @@ public class GuestController {
 		return "editform";
 	}
 	
-	@RequestMapping("/update")
-	public String updateOne(GuestVo bean){
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public String updateOne(HttpServletRequest req,GuestVo bean){
+		
 		guestDao.updateOne(bean);
 		return "redirect:/";
 	}

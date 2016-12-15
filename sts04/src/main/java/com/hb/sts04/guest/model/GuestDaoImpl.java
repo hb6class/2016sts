@@ -3,7 +3,9 @@ package com.hb.sts04.guest.model;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class GuestDaoImpl implements GuestDao {
 	private SqlSession sqlSession;
 	public void setSqlSession(SqlSession sqlSession) {

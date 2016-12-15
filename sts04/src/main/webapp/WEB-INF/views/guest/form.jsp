@@ -70,7 +70,10 @@
   <div class="form-group">
     <label for="sabun" class="col-sm-2 control-label">sabun</label>
     <div class="col-sm-10">
+    <div class="input-group input-group-sm">
       <input type="number" class="form-control" name="sabun" id="sabun" placeholder="sabun을 입력하세요">
+    <span class="input-group-addon" id="sizing-addon1">no.</span>
+    </div>
     </div>
   </div>
   <div class="form-group">
@@ -88,8 +91,10 @@
   
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
+      <div class="btn-group" role="group">
       <button type="submit" class="btn btn-default">입력</button>
       <button type="reset" class="btn btn-default">취소</button>
+      </div>
     </div>
   </div>
 </form>
